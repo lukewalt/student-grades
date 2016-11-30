@@ -1,27 +1,41 @@
-var scores = [92, 78, 98, 98, 78, 72, 72, 78, 78, 50, 50, 72, 92];
+var scores = [72, 78, 98, 98, 78, 62, 62, 78, 78, 50, 50, 72, 92];
 
 //created empty array to hold each converted letter
-var grade = [];
+var letterGrade = [];
 for (var i = 0; i < scores.length; i++) {
-  var nu = scores.sort();
+  var nu = scores.sort(function(a, b){return b-a});
   //if statement pushes designated letter if the number meets the condition
   if (nu[i] >= 90) {
-    grade.push("A");
+    letterGrade.push("A");
   }
   else if (nu[i] >= 80) {
-    grade.push("B");
+    letterGrade.push("B");
   }
   else if (nu[i] >= 70) {
-    grade.push("C");
+    letterGrade.push("C");
   }
   else if (nu[i] >= 60) {
-    grade.push("D");
+    letterGrade.push("D");
   }
   else {
-    grade.push("F");
+    letterGrade.push("F");
   }
 }
-console.log(grade);
+
+
+
+
+var tally = {
+    A: null,
+    B: null,
+    nickels: null,
+    pennies: null
+  };
+
+for (var i = 0; i < letterGrade.length; i++) {
+  console.log(letterGrade[i]);
+}
+
 
 
 console.log("--------------------------")
@@ -31,10 +45,10 @@ console.log("--------------------------")
 var highestGrade = function( array ){
   return Math.max.apply( Math, array );
 };
-console.log(highestGrade(scores));
+console.log("Highest Grade: " + highestGrade(scores));
 
 // What is the lowest grade?
 var highestGrade = function( array ){
   return Math.min.apply( Math, array );
 };
-console.log(highestGrade(scores));
+console.log("Lighest Grade: " + highestGrade(scores));
